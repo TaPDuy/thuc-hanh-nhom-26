@@ -3,26 +3,38 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Product Maintenance - All products</title>
+		<style>
+		   table,th,td{
+			  border : 1px solid black;
+			  border-collapse: collapse;
+		   }
+		</style>
 	</head>
 	
 	<body>
 		<h1>Products</h1>
-		<table border="1" cellpadding="5">
+		<table>
 		    <tr>
 				<th>Code</th>
 				<th>Description</th>
 				<th>Price</th>
+				<th></th>
+				<th></th>
 		    </tr>
 		    
 			<tr th:each="product : ${products}">
-			    <th>${product.code}</th>
-			    <th>${product.description}</th>
-			    <th>${product.price}</th>
-			    <th><a>Edit</a></th>
-			    <th><a>Delete</a></th>
+			    <td>${product.code}</td>
+			    <td>${product.description}</td>
+			    <td>${product.price}</td>
+			    <td>
+			       <a href="#">Edit</a>
+			    </td>
+			    <td>
+			       <a href = "#">Delete</a>
+			    </td>
 			</tr>
 		</table>
 	
-		<a>Add Product</a>
+		<a href="#">Add Product</a>
 	</body>
 </html>
