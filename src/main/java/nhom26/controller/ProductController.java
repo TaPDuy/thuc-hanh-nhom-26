@@ -30,8 +30,6 @@ public class ProductController {
 		return "products";
 	}
 	
-<<<<<<< HEAD
-=======
 	@GetMapping("add")
 	public String showAddProduct(Model model) {
 		return "add";
@@ -49,7 +47,6 @@ public class ProductController {
 		
 		return "products";
 	}
->>>>>>> 90c6818b36136278a47d6e4a034ea974fb3462ca
 	
 	@PutMapping
 	public String updateProduct(@ModelAttribute Product product, Model model) {
