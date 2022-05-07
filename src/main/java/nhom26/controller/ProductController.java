@@ -30,6 +30,26 @@ public class ProductController {
 		return "products";
 	}
 	
+<<<<<<< HEAD
+=======
+	@GetMapping("add")
+	public String showAddProduct(Model model) {
+		return "add";
+	}
+	
+	@PostMapping
+	public String addProduct(@ModelAttribute Product product, Model model) {
+		Product p = productRepository.getById(product.getCode());
+		
+		if(p != null) {
+			model.addAttribute("errorExistCode", "Trùng mã sản phẩm!!");
+		} else {
+			productRepository.save(product);
+		}
+		
+		return "products";
+	}
+>>>>>>> 90c6818b36136278a47d6e4a034ea974fb3462ca
 	
 	@PutMapping
 	public String updateProduct(@ModelAttribute Product product, Model model) {
