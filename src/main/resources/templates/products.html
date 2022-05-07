@@ -23,9 +23,9 @@
 		    </tr>
 		    
 			<tr th:each="product : ${products}">
-			    <td>${product.code}</td>
-			    <td>${product.description}</td>
-			    <td>${product.price}</td>
+			    <td th:text="${product.code}"></td>
+			    <td th:text="${product.description}"></td>
+			    <td th:text="${product.price}"></td>
 			    <td>
 			       <a href="#">Edit</a>
 			    </td>
