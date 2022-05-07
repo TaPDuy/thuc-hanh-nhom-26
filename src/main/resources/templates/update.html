@@ -8,7 +8,7 @@
 	<body>
 		<h1>Product</h1>
 		
-		<form th:object="${product}">
+		<form method = "Put" action = "@{/products}" th:object="${product}">
 			<label for="code">Product Code:</label>
 		    <input type="text" th:field="*{code}"/><br/>
 		    
@@ -21,6 +21,6 @@
 		        <input type = "submit" value = "Update Product">
 		        <input typr = "submit" value = "View Products">
 		    </div>
-		</form>
+		</form
 	</body>
 </html>
