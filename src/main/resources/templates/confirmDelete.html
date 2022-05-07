@@ -9,15 +9,15 @@
         <form method="post" th:action="@{/products/delete}" th:object="${product}">
         	
             <label for = "code">Product Code: </label>
-            <span th:text="${code}"></span><br>
+            <span th:text="${product.code}"></span><br>
             <input type="hidden" th:field="*{code}"/>
             
             <label for = "desc">Product Description: </label>
-            <span th:text="${description}"></span><br>
+            <span th:text="${product.description}"></span><br>
             <input type="hidden" th:field="*{description}"/>
             
             <label for = "price">Product Price:</label>
-            <span th:text="${price}"></span><br>
+            <span th:text="${product.price}"></span><br>
             <input type="hidden" th:field="*{price}"/>
             
             <input type="submit" value="Yes">
