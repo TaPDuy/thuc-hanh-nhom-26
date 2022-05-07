@@ -20,13 +20,18 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@GetMapping
+	@GetMapping("list")
 	public String showProducts(Model model) {
 		List<Product> products = productRepository.findAll();
 		
 		model.addAttribute(products);
 		
 		return "products";
+	}
+	
+	@GetMapping("add")
+	public String showAddProduct(Model model) {
+		return "add";
 	}
 	
 
