@@ -5,16 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
-import nhom26.model.Product;
 import nhom26.repository.ProductRepository;
+import nhom26.model.Product;
 
 @Controller
-@RequestMapping("/products")
 public class ProductController {
 	
 	@Autowired
@@ -29,25 +30,21 @@ public class ProductController {
 		return "products";
 	}
 	
-	@GetMapping("add")
-	public String showAddProduct(Model model) {
-		return "add";
-	}
 	
-
-	@PostMapping
-	public String addProduct(@ModelAttribute Product product, Model model) {
+	@PutMapping
+	public String updateProduct(@ModelAttribute Product product, Model model) {
 		Product p = productRepository.getById(product.getCode());
 		
-		if(p != null) {
-			model.addAttribute("errorExistCode", "Trùng mã sản phẩm!!");
-		} else {
-			productRepository.save(product);
-		}
+		p.setDesc(product.getDesc());
+		p.setPrice(product.getPrice());
+		productRepository.save(p);
 		
 		return "products";
 	}
 	
-	
-	
+	@DeleteMapping
+	public String deleteProduct(@ModelAttribute Product product, Model model) {
+		productRepository.deleteById(product.getCode());
+		return "products";
+	}
 }
