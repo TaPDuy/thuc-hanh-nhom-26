@@ -28,7 +28,6 @@ public class ProductController {
 		return "products";
 	}
 	
-
 	@PostMapping
 	public String addProduct(@ModelAttribute Product product, Model model) {
 		Product p = productRepository.getById(product.getCode());
@@ -42,4 +41,20 @@ public class ProductController {
 		return "products";
 	}
 	
+	@PostMapping
+	public String updateProduct(@ModelAttribute Product product, Model model) {
+		Product p = productRepository.getById(product.getCode());
+		
+		p.setDesc(product.getDesc());
+		p.setPrice(product.getPrice());
+		productRepository.save(p);
+		
+		return "products";
+	}
+	
+	@PostMapping
+	public String deleteProduct(@ModelAttribute Product product, Model model) {
+		productRepository.deleteById(product.getCode());
+		return "products";
+	}
 }
