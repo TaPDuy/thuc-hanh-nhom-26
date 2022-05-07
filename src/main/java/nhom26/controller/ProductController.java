@@ -12,4 +12,7 @@ public class ProductController {
 	public String showProducts() {
 		return "products";
 	}
+	
+	
+	
 }
