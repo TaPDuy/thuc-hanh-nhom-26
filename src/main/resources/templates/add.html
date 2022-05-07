@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>Add Product</title>
     </head>
     <body>
-        <form>
-            <p><i>{errorExistCode}</i></p>
-            <label>Product Code:</label>
-            <input type="text" name="code"><br>
-            <label>Product Description</label>
-            <input type="text" name="description" ><br>
-            <label>Product Price</label>
-            <input type="text" name="cost" ><br>
+
+        <form method = "post" th:action = "@{/products}" th:object = "${product}">
+            <p><i th:text="${errorExistCode}"></i></p>
+            <label for = "code">Product Code:</label>
+            <input type="text" th:field = "*{code}"><br>
+            <label for = "desc">Product Description</label>
+            <input type="text" th:field = "*{description}"><br>
+            <label for = "price">Product Price</label>
+            <input type="text" th:field = "*{price}"><br>
             <input type="submit" value="Add Product">&nbsp;&nbsp;&nbsp;
-            <input type="submit" value="View Product">
-        </form>
-        
+        </form >
+        <a href="/products">View Products</a>
     </body>
 </html>

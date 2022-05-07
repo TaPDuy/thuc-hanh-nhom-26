@@ -10,4 +10,4 @@ public class ThucHanh2Application {
 		SpringApplication.run(ThucHanh2Application.class, args);
 	}
 
-}
+}	
