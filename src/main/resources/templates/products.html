@@ -27,10 +27,10 @@
 			    <td th:text="${product.description}"></td>
 			    <td th:text="${product.price}"></td>
 			    <td>
-			       <a href="#">Edit</a>
+			       <a th:href="@{/products/update/} + ${product.code}">Edit</a>
 			    </td>
 			    <td>
-			       <a href = "#">Delete</a>
+			       <a th:href="@{/products/delete/} + ${product.code}">Delete</a>
 			    </td>
 			</tr>
 		</table>
