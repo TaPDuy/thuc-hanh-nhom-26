@@ -10,10 +10,8 @@ import lombok.Data;
 @Data
 @Entity
 public class Product {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
+	@Id
 	private String code;
 	private String desc;
 	private float price;

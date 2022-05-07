@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,11 +31,16 @@ public class ProductController {
 	
 
 	@PostMapping
-	public String addProduct(Model model) {
-		Product product = new Product();
-		model.addAttribute(product);
+	public String addProduct(@ModelAttribute Product product, Model model) {
+		Product p = productRepository.getById(product.getCode());
 		
-		return "add";
+		if(p != null) {
+			model.addAttribute("errorExistCode", "Trùng mã sản phẩm!!");
+		} else {
+			productRepository.save(product);
+		}
+		
+		return "products";
 	}
 	
 	
