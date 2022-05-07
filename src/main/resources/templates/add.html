@@ -5,17 +5,17 @@
         <title>Add Product</title>
     </head>
     <body>
-        <form>
+        <form methor="POST" model="product">
             <p><i>{errorExistCode}</i></p>
             <label>Product Code:</label>
-            <input type="text" name="code"><br>
+            <input type="text" name="code" ><br>
             <label>Product Description</label>
             <input type="text" name="description" ><br>
             <label>Product Price</label>
             <input type="text" name="cost" ><br>
             <input type="submit" value="Add Product">&nbsp;&nbsp;&nbsp;
             <input type="submit" value="View Product">
-        </form>
+        </form >
         
     </body>
 </html>
